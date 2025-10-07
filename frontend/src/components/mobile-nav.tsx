@@ -2,7 +2,7 @@ import { useState } from "react"
 import { useTranslation } from "react-i18next"
 import { Button } from "./ui/button"
 import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle } from "./ui/sheet"
-import { Menu, Home, Info, Mail, Settings, User } from "lucide-react"
+import { Menu, Home, Info, Mail, Settings, User, Github } from "lucide-react"
 import { ModeToggle } from "./mode-toggle"
 import { LanguageToggle } from "./language-toggle"
 import { useSettings } from "@/hooks/useSettings"
@@ -99,6 +99,23 @@ export function MobileNav({ currentPage = "home", onNavigate }: MobileNavProps) 
               {item.label}
             </Button>
           ))}
+          
+          {/* GitHub Link - Desktop Navigation */}
+          <Button
+            variant="ghost"
+            size="sm"
+            asChild
+            className="flex items-center gap-2"
+          >
+            <a
+              href="https://github.com/Itqan-community/iqra-al-quran"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Github className="h-4 w-4" />
+              <span>GitHub</span>
+            </a>
+          </Button>
         </nav>
 
         {/* Right side controls */}
@@ -150,6 +167,28 @@ export function MobileNav({ currentPage = "home", onNavigate }: MobileNavProps) 
                 ))}
                 
                 {/* Divider */}
+                <div className="border-t my-4" />
+                
+                {/* GitHub Link - Mobile */}
+                <Button
+                  variant="ghost"
+                  size="lg"
+                  asChild
+                  className={cn(
+                    "justify-start gap-3 h-12 w-full",
+                    isArabic ? "flex-row-reverse" : ""
+                  )}
+                >
+                  <a
+                    href="https://github.com/Itqan-community/iqra-al-quran"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Github className="h-5 w-5" />
+                    <span className="text-base">GitHub</span>
+                  </a>
+                </Button>
+                
                 <div className="border-t my-4" />
                 
                 {/* Additional Options */}
