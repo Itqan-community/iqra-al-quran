@@ -1,0 +1,14 @@
+[build]
+builder = "dockerfile"
+dockerfilePath = "backend/Dockerfile"
+
+[deploy]
+restartPolicyType = "on_failure"
+healthcheckPath = "/api/health"
+healthcheckTimeout = 300
+
+[env]
+FLASK_SECRET = "{{ FLASK_SECRET }}" # TODO: Generate a strong, unique secret in Railway variables
+
+[[services]]
+name = "backend"

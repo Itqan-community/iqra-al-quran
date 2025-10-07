@@ -1,0 +1,23 @@
+name: iqra-backend-only
+services:
+- name: backend
+  source_dir: /
+  git:
+    repo_clone_url: https://github.com/Itqan-community/iqra-al-quran.git
+    branch: main
+  dockerfile_path: backend/Dockerfile
+  instance_count: 1
+  instance_size_slug: basic-xxs
+  http_port: 8080
+  envs:
+  - key: FLASK_SECRET
+    value: "do-prod-secret-iqra-2025"
+  - key: PORT
+    value: "8080"
+  health_check:
+    http_path: /api/health
+    initial_delay_seconds: 60
+    period_seconds: 10
+    timeout_seconds: 5
+    success_threshold: 1
+    failure_threshold: 3

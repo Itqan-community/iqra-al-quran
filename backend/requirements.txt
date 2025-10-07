@@ -1,0 +1,11 @@
+Flask==3.0.3
+faster-whisper==1.0.3
+torch==2.5.1
+torchaudio==2.5.1
+SoundFile==0.12.1
+pydub==0.25.1
+jiwer==3.0.4
+requests==2.32.3
+gunicorn==23.0.0
+flask-cors==5.0.0
+librosa==0.10.1

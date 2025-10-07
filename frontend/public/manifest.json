@@ -1,0 +1,29 @@
+{
+  "name": "Iqra Al-Quran - Learn Quran Recitation",
+  "short_name": "Iqra Al-Quran",
+  "description": "AI-powered Quran recitation learning app with authentic text caching",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#22c55e",
+  "orientation": "portrait",
+  "scope": "/",
+  "lang": "ar",
+  "dir": "rtl",
+  "categories": ["education", "productivity", "lifestyle"],
+  "icons": [
+    {
+      "src": "/vite.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "features": [
+    "offline-support",
+    "voice-recognition", 
+    "text-caching",
+    "progress-tracking"
+  ],
+  "shortcuts": []
+}

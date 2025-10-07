@@ -1,0 +1,13 @@
+[build]
+builder = "dockerfile"
+
+[deploy]
+healthcheckPath = "/health"
+healthcheckTimeout = 10
+
+[environment]
+# Backend URL for server-side proxy (runtime variable)
+# The Express server will proxy /api requests to this URL
+# Set BACKEND_URL in Railway Variables to your backend's URL
+VITE_API_TIMEOUT = "10000"
+VITE_DEBUG = "false"

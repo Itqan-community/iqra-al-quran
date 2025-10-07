@@ -1,0 +1,29 @@
+# builder stage with build tools
+FROM python:3.11-slim-bullseye AS builder
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    gcc \
+    g++ \
+    build-essential \
+    && rm -rf /var/lib/apt/lists/*
+WORKDIR /app
+COPY requirements.txt .
+RUN pip wheel --no-cache-dir --wheel-dir /wheels -r requirements.txt
+
+# final runtime stage
+FROM python:3.11-slim-bullseye
+WORKDIR /app
+# Install only minimal runtime dependencies if needed
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    libgcc1 \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy pre-built wheels and install without dev tools
+COPY --from=builder /wheels /wheels
+RUN pip install --no-cache-dir --no-deps /wheels/*.whl && rm -rf /wheels
+
+# Copy application code
+COPY . .
+
+# Expose port and run
+EXPOSE 8080
+CMD gunicorn --bind 0.0.0.0:$PORT --timeout 120 test_app:app
