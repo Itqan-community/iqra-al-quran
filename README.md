@@ -8,6 +8,8 @@ A comprehensive open-source platform for checking Quranic recitation accuracy us
 
 Iqra Al-Quran helps users learn and improve their Quranic recitation through AI technology. Using a specialized Whisper model trained on Quranic audio, this application provides real-time feedback on recitation accuracy with word-by-word analysis.
 
+https://iqra.itqan.dev/
+
 ## 🚀 Quick Start
 
 ### One-Command Development Setup
